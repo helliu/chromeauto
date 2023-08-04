@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "ChromeAuto",
+  "version": "1.0",
+  "description": "A plugin to automate chrome functions, binding shortcuts to scripts files.",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["tabs", "storage", "commands", "<all_urls>", "search"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "commands": {},
+  "options_page": "scripts.html",
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": ["hotkeyListener.js"]
+      }
+  ],
+  "web_accessible_resources": [
+      "golden-layout.min.js",
+      "golden-layout.min.css",
+      "goldenlayout-light-theme.css",
+      "ace.js",
+      "./ace/worker-javascript.js"
+  ]
+}
